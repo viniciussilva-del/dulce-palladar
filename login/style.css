@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #191919, #3a2c1f);
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+body::before,
+body::after {
+  content: 'Dulce Palladar';
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: rgba(232, 200, 149, 0.08);
+  position: absolute;
+  white-space: nowrap;
+}
+
+body::before {
+  top: 20px;
+  left: 25px;
+  transform: rotate(-15deg);
+}
+
+body::after {
+  bottom: 20px;
+  right: 25px;
+  transform: rotate(15deg);
+}
+
+.form {
+  --bg-light: #ffffff;
+  --bg-dark: #4a3b2b;
+  --clr: #e8c895;
+  --clr-alpha: rgba(255,255,255,0.08);
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 350px;
+  border-radius: 1.2rem;
+  box-shadow: 0px 8px 25px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.form-header {
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.4rem;
+  color: var(--clr);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.input-span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--clr);
+  font-size: 0.9rem;
+}
+
+.form input[type="email"],
+.form input[type="password"] {
+  border-radius: 0.6rem;
+  padding: 0.9rem;
+  border: none;
+  background-color: var(--clr-alpha);
+  color: var(--bg-light);
+  outline: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.form input[type="email"]:focus,
+.form input[type="password"]:focus {
+  background-color: rgba(255,255,255,0.15);
+  border: 1px solid var(--clr);
+}
+
+.submit {
+  padding: 0.9rem;
+  background: var(--clr);
+  color: #191919;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 3rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit:hover {
+  background: #f0d7a5;
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+}
+
+.span {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #d9d9d9;
+}
+
+.span a {
+  color: var(--clr);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.span a:hover {
+  color: #fff2d0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
