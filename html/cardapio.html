@@ -1,705 +1,81 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dulce Palladar | Cardápio</title>
-  <link rel="stylesheet" href="../css/cardapio.css">
-  <link rel="stylesheet" href="../css/home.css">
-  <link rel="shortcut icon" href="../assets/img/coffee-logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../assets/img/coffee-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Instrument+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="../css/site.css">
+<title>Cardápio | Dulce Palladar</title>
+<meta name="description" content="Cardápio do Dulce Palladar: cafés, pães, bolos e sucos. Filtre por categoria e monte seu pedido.">
 </head>
-
 <body>
+<header class="nav is-solid">
+  <a class="nav__logo" href="index.html" aria-label="Dulce Palladar, início">Dulce <span>Palladar</span></a>
+  <ul class="nav__links" id="menu">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="cardapio.html" aria-current="page">Cardápio</a></li>
+    <li><a href="index.html#sobre">Sobre</a></li>
+    <li><a href="#contato">Horários</a></li>
+  </ul>
+  <div class="nav__actions">
+    <button class="icon-btn" type="button" data-open-cart aria-label="Abrir carrinho"><i class="fas fa-bag-shopping" aria-hidden="true"></i><span class="cart-count" data-cart-count hidden>0</span></button>
+    <a class="icon-btn" href="../login/form.html" aria-label="Entrar"><i class="fas fa-user" aria-hidden="true"></i></a>
+    <button class="icon-btn nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><i class="fas fa-bars" aria-hidden="true"></i></button>
+  </div>
+</header>
 
-    <section class="section-header" id="header">
-
-        <div class="bg-section">
-
-            <nav class="navbar">
-
-                <a class="logo" href="#header">Dulce <br> <span>Palladar</span></a>
-
-                <ul class="menu">
-
-                    <li>
-                        <a href="index.html">Home</a>
-                    </li>
-
-                    <li>
-                        <a href="cardapio.html">Cardápio</a>
-                    </li>
-
-                    <li>
-                        <a href="#especiais">Especiais</a>
-                    </li>
-
-                    <li>
-                        <a href="#footer">Contato</a>
-                    </li>
-
-                </ul>
-
-                <div class="user">
-
-                    <a href="../login/form.html" aria-label="Entrar ou acessar cadastro"><img src="../assets/img/user.png" alt="icone de usuário"></a>
-
-                    <button class="icon-menu-mobile" onclick="abrirMenu()">
-                        <img src="../assets/img/menu.png" alt="">
-                    </button>
-
-                </div>
-
-                <div class="box-menu-mobile">
-
-                    <button class="fecharmenu" onclick="fecharMenu()">
-                        <img src="../assets/img/close.png" alt="">
-                    </button>
-
-                    <ul class="menu-mobile">
-
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-
-                        <li>
-                            <a class="active" href="cardapio.html">Cardápio</a>
-                        </li>
-
-                        <li>
-                            <a href="../login/form.html">Cadastro</a>
-                        </li>
-
-                        <li>
-                            <a href="#footer">Contato</a>
-                        </li>
-                        
-                     
-
-                        </div>
-
-                   
-
-                    </ul>
-
-
-                </div>
-
-            </nav>
-
-            <!-- Botão flutuante do carrinho -->
-            <div class="floating-cart-button" onclick="abrirCarrinho()">
-
-                <i class="fas fa-bag-shopping"></i>
-
-            </div>
-
-            <!-- Sidebar do carrinho -->
-            <div class="sidebar-cart" id="sidebarCart">
-
-                <button class="close-cart" onclick="fecharCarrinho()">×</button>
-
-                <h2>Seu Carrinho</h2>
-
-                <div class="cart-content">
-
-                    <p>Carrinho vazio...</p>
-
-                </div>
-
-            </div>
-
-  <section class="section-especial-itens">
-    <div class="pesquisa-filtro">
-      <input type="text" class="pesquisa" id="searchInput" placeholder="Pesquisar no cardápio...">
-      <div class="filtro" id="filterButtons">
-        <button data-category="todos">Todos</button>
-        <button data-category="cafes">Cafés</button>
-        <button data-category="doces">Doces</button>
-        <button data-category="salgados">Salgados</button>
-        <button data-category="sucos">Sucos</button>
-      </div>
+<main>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--caramel)">Cardápio</p>
+      <h1>Tudo que sai <em>do balcão.</em></h1>
+      <p>Filtre por categoria ou busque pelo nome. Adicione ao carrinho e veja o total na hora.</p>
     </div>
-    <div class="box-itens-especiais" id="especiais">
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/9.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>CAFFE LATTE</h6>
-
-          <p>Leite cremoso combinado com um espresso encorpado.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/10.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>ICED CARAMEL LATTE</h6>
-
-          <p>Refrescante, doce na medida e com aquele toque de caramelo irresistível.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/11.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>CAFFE MOCHA</h6>
-
-          <p>Uma mistura perfeita de café, leite e chocolate.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/12.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>ESPRESSO MACCHIATO</h6>
-
-          <p>Para quem busca intensidade e sabor marcante em poucos goles.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-    <div class="box-itens-especiais" id="especiais">
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/pao-frances.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>PÃO FRANCÊS</h6>
-
-          <p>Clássico, crocante por fora e macio por dentro. Ideal para qualquer momento do dia.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/pao-integral.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>PÃO INTEGRAL</h6>
-
-          <p>Sabor leve e nutritivo, perfeito para quem busca equilíbrio sem abrir mão do gosto.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/pao-queijo.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>PÃO DE QUEIJO</h6>
-
-          <p>Tradicional, quentinho e com aquele sabor de queijo que conquista a todos.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/pao-croissant.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>CROISSANT</h6>
-
-          <p>Leve, folhado e amanteigado, ideal para acompanhar um bom café.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-    <div class="box-itens-especiais" id="especiais">
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/bolo-choco.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>BOLO DE CHOCOLATE</h6>
-
-          <p>Fofinho e intenso, com o sabor marcante do chocolate que todo mundo ama.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/bolo-baunilha.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>BOLO DE BAUNILHA</h6>
-
-          <p>Suave, delicado e perfumado. Um clássico que combina com qualquer ocasião.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/bolo-coco.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>BOLO DE COCO</h6>
-
-          <p>Leve e molhadinho, com coco ralado que traz um toque tropical irresistível.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/bolo-red.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>RED VELVET</h6>
-
-          <p>Macio, elegante e com sabor único. Uma combinação perfeita de cor e cremosidade.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-    <div class="box-itens-especiais" id="especiais">
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/suco-laranja.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>Suco de Laranja</h6>
-
-          <p>Refrescante e naturalmente doce, feito com laranjas frescas e suculentas.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/suco-manga.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>Suco de Manga</h6>
-
-          <p>Cremoso e tropical, com o sabor marcante da manga madura.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/suco-menta.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>Suco de Hortelã</h6>
-
-          <p>Refrescante e aromático, com o frescor das folhas de hortelã recém-colhidas.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="cards">
-
-        <div class="box-img-card">
-          <img src="../assets/img/suco-limao.png" alt="">
-        </div>
-
-        <div class="text-card">
-
-          <h6>Suco de Limão</h6>
-
-          <p>Leve e cítrico, perfeito para matar a sede e revigorar.</p>
-
-          <div class="valor-btn">
-
-            <p>R$ 0,00</p>
-
-            <div class="box-btn-cart">
-              <i class="fas fa-bag-shopping"></i>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
   </section>
-
-  <script src="../scripts.js"></script>
-  <footer id="footer">
-
-    <div class="box-horarios">
-
-      <h6>Horários de atendimento</h6>
-
-      <div class="horarios">
-
-        <p>Segunda</p>
-
-        <div class="line"></div>
-
-        <p>9:00 - 10.00pm</p>
-
+  <div class="toolbar">
+    <div class="wrap toolbar__inner">
+      <div class="chips" role="group" aria-label="Filtrar por categoria">
+        <button class="chip" type="button" data-chip="todos" aria-pressed="true">Todos</button>
+        <button class="chip" type="button" data-chip="cafes" aria-pressed="false">Cafés</button>
+        <button class="chip" type="button" data-chip="salgados" aria-pressed="false">Pães e salgados</button>
+        <button class="chip" type="button" data-chip="doces" aria-pressed="false">Bolos e doces</button>
+        <button class="chip" type="button" data-chip="sucos" aria-pressed="false">Sucos</button>
       </div>
-
-      <div class="horarios">
-
-        <p>Terça</p>
-
-        <div class="line"></div>
-
-        <p>9:00 - 10.00pm</p>
-
-      </div>
-
-      <div class="horarios">
-
-        <p>Quarta</p>
-
-        <div class="line"></div>
-
-        <p>9:00 - 10.00pm</p>
-
-      </div>
-
-      <div class="horarios">
-
-        <p>Quinta</p>
-
-        <div class="line"></div>
-
-        <p>9:00 - 10.00pm</p>
-
-      </div>
-
-      <div class="horarios">
-
-        <p>Sexta</p>
-
-        <div class="line"></div>
-
-        <p>9:00 - 10.00pm</p>
-
-      </div>
-
-      <div class="horarios">
-
-        <p>Sábado</p>
-
-        <div class="line"></div>
-
-        <p>Fechado</p>
-
-      </div>
-
-      <div class="horarios">
-
-        <p>Domingo</p>
-
-        <div class="line"></div>
-
-        <p>Fechado</p>
-
-      </div>
-
+      <label class="sr-only" for="search">Buscar no cardápio</label>
+      <input class="search" id="search" type="search" placeholder="Buscar item" autocomplete="off">
     </div>
+  </div>
+  <div class="wrap"><div class="grid" data-menu></div></div>
+</main>
 
-    <div class="informacoes">
-
-      <h5>Informações</h5>
-
-      <a href="#">Minha Conta</a>
-      <a href="#">Carrinho</a>
-      <a href="#">Checkout</a>
-
+<footer class="footer" id="contato">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <h4>Horários</h4>
+        <ul class="hours" data-hours></ul>
+      </div>
+      <div>
+        <h4>Navegar</h4>
+        <ul class="plain">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="cardapio.html">Cardápio</a></li>
+          <li><a href="../login/form.html">Entrar ou cadastrar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Sobre este site</h4>
+        <p>Projeto de portfólio de front-end. Os preços são fictícios.</p>
+        <p><a href="https://github.com/viniciussilva-del/dulce-palladar">Ver código no GitHub</a></p>
+      </div>
     </div>
-
-    <div class="box-contato">
-
-      <h5>Contatos</h5>
-
-      <div class="contato">
-
-        <img src="../assets/img/place-localizer.png" alt="">
-        <p>123 Lorem ipsum, sit, amet.</p>
-
-      </div>
-
-      <div class="contato">
-
-        <img src="../assets/img/clock.png" alt="">
-        <p>Everyday: 9am - 10pm</p>
-
-      </div>
-
-      <div class="contato">
-
-        <img src="../assets/img/telephone.png" alt="">
-        <a href="#">+1 (321) 009-008</a>
-
-      </div>
-
-      <div class="contato">
-
-        <img src="../assets/img/email.png" alt="">
-        <a href="#">email@exemplo.com</a>
-
-      </div>
-
-      <div class="social">
-
-        <p>Siga-nos:</p>
-
-        <a href="#">
-          <img src="../assets/img/facebook.png" alt="">
-        </a>
-
-        <a href="#">
-          <img src="../assets/img/tik-tok.png" alt="">
-        </a>
-
-        <a href="#">
-          <img src="../assets/img/instagram.png" alt="">
-        </a>
-
-        <a href="#">
-          <img src="../assets/img/twitter.png" alt="">
-        </a>
-
-      </div>
-
-    </div>
-
-    <p>&copy; 2025 <span>Dulce Palladar</span>. Todos os direitos reservados.</p>
-
-  </footer>
+    <p class="footer__legal">&copy; 2026 Dulce Palladar. Projeto de demonstração.</p>
+  </div>
+</footer>
+<script src="../scripts.js"></script>
 </body>
-
 </html>
